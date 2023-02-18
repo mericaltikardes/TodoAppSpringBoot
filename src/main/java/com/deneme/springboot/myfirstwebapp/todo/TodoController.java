@@ -3,6 +3,8 @@ package com.deneme.springboot.myfirstwebapp.todo;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,14 +28,17 @@ public class TodoController {
 
     @RequestMapping("list-todos")
     public String listAllTodos(ModelMap modelMap) {
-        List<TodoDatas> todos = todoService.findByUsername("Meric");
+        String name = getLoggedInUsername(modelMap);
+        List<TodoDatas> todos = todoService.findByUsername(name);
         modelMap.put("todos", todos);
         return "listTodos";
     }
 
+
+
     @RequestMapping(value = "add-todo", method = RequestMethod.GET)
     public String showNewTodos(ModelMap model) {
-        String name = (String) model.get("name");
+        String name = getLoggedInUsername(model);
         TodoDatas todo = new TodoDatas(0, name, "", LocalDate.now().plusYears(1), false);
         //ModelAttributes in jsp file
         model.put("todo", todo);
@@ -47,7 +52,7 @@ public class TodoController {
             model.addAttribute("todo", todo);
             return "addTodos";
         }
-        String username = (String) model.get("name");
+        String username = getLoggedInUsername(model);
         todoService.addTodo(username, todo.getDescription(),
                 todo.getTargetDate(), false);
         return "redirect:list-todos";
@@ -73,9 +78,13 @@ public class TodoController {
             model.addAttribute("todo", todo);
             return "addTodos";
         }
-        String username = (String) model.get("name");
+        String username = getLoggedInUsername(model);
         todo.setUsername(username);
         todoService.updateTodo(todo);
         return "redirect:list-todos";
+    }
+    private static String getLoggedInUsername(ModelMap modelMap) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return authentication.getName();
     }
 }
