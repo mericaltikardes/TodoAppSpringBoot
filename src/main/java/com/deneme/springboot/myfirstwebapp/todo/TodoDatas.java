@@ -1,11 +1,16 @@
 package com.deneme.springboot.myfirstwebapp.todo;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
-
+@Entity
 public class TodoDatas {
+    @Id
+    @GeneratedValue
     private int id;
     private String username;
     @Size(min = 10,message = "min 10 characters")
@@ -21,6 +26,9 @@ public class TodoDatas {
         this.done = done;
     }
 
+    public TodoDatas() {
+
+    }
 
 
     public int getId() {
