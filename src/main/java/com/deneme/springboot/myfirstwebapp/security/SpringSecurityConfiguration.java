@@ -2,7 +2,6 @@ package com.deneme.springboot.myfirstwebapp.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,24 +18,21 @@ import static org.springframework.security.config.Customizer.withDefaults;
 public class SpringSecurityConfiguration {
 
 
-//    InMemoryUserDetailsManager
+    //    InMemoryUserDetailsManager
 //    InMemoryUserDetailsManager(UserDetails... users)
 //    user.withDefaultPasswordEncoder is deprecated
     @Bean
     public InMemoryUserDetailsManager createUserDetailsManager() {
-
-
         String username = "Meric";
         String password = "1234";
-
         UserDetails userDetails = createNewUser(username, password);
         UserDetails userDetails1 = createNewUser("melih", "1234");
-        return new InMemoryUserDetailsManager(userDetails,userDetails1);
+        return new InMemoryUserDetailsManager(userDetails, userDetails1);
     }
 
     private UserDetails createNewUser(String username, String password) {
-        Function<String,String> passwordEncoder
-                =input -> passwordEncoder().encode(input);
+        Function<String, String> passwordEncoder
+                = input -> passwordEncoder().encode(input);
         UserDetails userDetails = User.builder()
                 .passwordEncoder(passwordEncoder)
                 .username(username)
@@ -50,7 +46,8 @@ public class SpringSecurityConfiguration {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    //h2 db sine bağlantı sağlayabilmek için spring securityden istisna yaratmak için !!
+
+    //h2 db sine bağlantı sağlayabilmek için , spring securityden istisna yaratmak için !!
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         //tüm http isteklerinin kimlik doğrulaması gerektirdiğini belirtiyor.

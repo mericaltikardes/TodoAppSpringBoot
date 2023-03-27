@@ -26,6 +26,7 @@ public class SayHelloController {
         sb.append("</html>");
         return sb.toString();
     }
+
     @RequestMapping("say-hello-jsp")
     //@ResponseBody
     //Response Body annotation doesnt use with jsp file
