@@ -10,24 +10,20 @@ This project is a simple Todo application developed with Spring Boot. It allows 
 <h2>Technologies Used</h2>
 <ul>
 <li>
-spring-boot-starter-data-jpa: Starter for using Spring Data JPA with Hibernate.
+Spring Boot Starter Data Jpa: Starter for using Spring Data JPA with Hibernate.
 </li>
 
 <li>
-h2: In-memory database for development and testing purposes.
+H2: In-memory database for development and testing purposes.
 </li>
 
 <li>
-spring-boot-starter-security: Starter for using Spring Security.
+Spring Boot Starter Security: Starter for using Spring Security.
 </li>
 
 <li>
-tomcat-embed-jasper: Embeddable Apache Tomcat JSP engine with Jasper.
+Tomcat Embed Jasper: Embeddable Apache Tomcat JSP engine with Jasper.
 </li>
-
 </ul>
-
-<img src=>
-
-<img src="https://im3.ezgif.com/tmp/ezgif-3-a08d4ee16a.webm" 
-height="300" style="max-width: 100%; display: inline-block;" data-target="animated-image.originalImage">
+<h2>Application Interface</h2>
+<img src="https://github.com/mericaltikardes/TodoAppSpringBoot/blob/master/screen-capture%20(1).gif" alt="">
