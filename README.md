@@ -1,7 +1,7 @@
 # TodoAppSpringBoot
 
 This project is the first project I developed with spring boot. 
-It is a todoApp project that I developed for the purpose of learning spring boot by following   <a href="https://www.udemy.com/course/spring-boot-tutorial-for-beginners/">Learn Spring Boot 3 in 100 Steps</a>
+It is a TodoApp project that I developed for the purpose of learning spring boot by following   <a href="https://www.udemy.com/course/spring-boot-tutorial-for-beginners/">Learn Spring Boot 3 in 100 Steps</a>
 <br>
 <h2>Owerview</h2>
 This project is a simple Todo application developed with Spring Boot. It allows users to create todo , update and delete Todo.
