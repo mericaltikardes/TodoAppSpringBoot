@@ -26,4 +26,4 @@ Tomcat Embed Jasper: Embeddable Apache Tomcat JSP engine with Jasper.
 </li>
 </ul>
 <h2>Application Interface</h2>
-<img src="https://github.com/mericaltikardes/TodoAppSpringBoot/blob/master/screen-capture%20(1).gif" alt="">
+<img src="https://github.com/mericaltikardes/TodoAppSpringBoot/blob/master/1.gif" alt="">
